@@ -8,10 +8,17 @@ public class Example6 {
 		// TODO Auto-generated method stub
 	      // [지문1] 국어 , 영어 , 수학 점수를 각 입력받아서 각 변수에 저장하고 총점 과 평균을 계산하여 console탭에 출력하시오.
 		
+		Scanner sc11 = new Scanner(System.in);
+		System.out.println("국어점수를 입력하세요");
+		int 국어 = sc11.nextInt();
 		
-		int 국어 = 90;
-		int 영어 = 80;
-		int 수학 = 70;
+		System.out.println("영어점수를 입력하세요");
+		int 영어 = sc11.nextInt();
+		
+		System.out.println("수학점수를 입력하세요");
+		int 수학 = sc11.nextInt();
+		
+	
 		int sum = 국어+영어+수학;
 		int average = sum/3;
 		System.out.println("총점:"+sum);
@@ -20,14 +27,21 @@ public class Example6 {
 	      
 	      // [지문2] 반지름를 입력받아서 원넓이[반지름*반지름*3.14] 계산하여 console탭에 출력하시오.
 	      
-		int 반지름1 = 10;
-		int 반지름2 = 12;
-		double 원넓이 = 반지름1*반지름2*3.14;
+		Scanner sc12 = new Scanner(System.in);
+		System.out.println("반지름을 입력하세요");
+		int 반지름 = sc12.nextInt();
+	
+		double 원넓이 = (반지름*반지름)*3.14;
 		System.out.println("원넓이:"+원넓이);
 		
 	      // [지문3] 두 실수를 입력받아서 앞 실수의 값이 뒤실수의 값의 비율% 계산하여 console탭에 출력하시오.
-	      float 실수1 = 10.11f;
-	      float 실수2 = 3.245f;
+		  Scanner sc13 = new Scanner(System.in);
+		  System.out.println("첫번째 실수를 입력하세요");
+	      float 실수1 = sc13.nextFloat();
+	      
+	      System.out.println("두번째 실수를 입력하세요");
+	      float 실수2 = sc13.nextFloat();
+	      
 	      float 비율 = 실수1/실수2;
 	      System.out.println("비율:"+비율);
 	      
