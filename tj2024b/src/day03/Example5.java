@@ -50,11 +50,12 @@ public class Example5 {
 		
 		//문제4 : 각 3개의 정수형으로 수를 입력받아 오름차순 순서대로 출력하시오. [ 전제조건 : 각 정수는 서로 다른 정수값 ]
 		System.out.println("문제4:3개의 정수형을 입력하세요");
-		int value1 = sc.nextInt(); int value2 =sc.nextInt(); int value3 =sc.nextInt();
-		if(value1 >value2) {
-			int temp =value1; value1 = value2; value2 = temp; } //if end
-		if(value1 > value3) {int temp=value1; value1 =value3; value3 = temp;} //if end
-		if(value2 > value3) {int temp=value2; value1 = value3; value3 = temp;} //if end
+		int value1 = sc.nextInt(); int value2 =sc.nextInt(); int value3 =sc.nextInt(); //3개입력
+		if(value2 > value3) {
+		    int temp = value2; 
+		    value2 = value3;  
+		    value3 = temp;
+		}
 		
 		System.out.println(value1);System.out.println(value2);System.out.println(value3);
 		//문제5 : 가위바위보 게임 구현하기.
@@ -81,31 +82,46 @@ public class Example5 {
 			   //-연수가 4, 100으로 나누어 떨어지는 해는 평년으로 한다. 연수 4 100으로 나눔 목쓸거
 			   //-연수가 4, 100, 400으로 나누어 떨어지는 해는 윤년으로 둔다.  4, 100, 400 
 			   //[ 출력조건] '입력한OOOO년 은' 윤년 입니다.  혹은 평년 입니다 로 출력하시오.
-			int year = sc.nextInt(); // 년도입력
-				if(year/4==0 && year/400==0&&year/100==0) {
-					System.out.println("입력한"+year+"은 윤년입니다.");
-				}else if(year/4==0&&year/100==0) {
-					System.out.println("입력한"+year+"은 평년입니다");
-				}else {
-					System.out.println("입력한"+year+"은 윤년입니다");
-				}
+			int year = sc.nextInt();
+			if(year % 400 == 0) {  // 400으로 나누어 떨어지면 윤년
+			    System.out.println("입력한 " + year + "년은 윤년입니다.");
+			} else if(year % 100 == 0) {  // 100으로 나누어 떨어지면 평년
+			    System.out.println("입력한 " + year + "년은 평년입니다.");
+			} else if(year % 4 == 0) {  // 4로 나누어 떨어지면 윤년
+			    System.out.println("입력한 " + year + "년은 윤년입니다.");
+			} else {
+			    System.out.println("입력한 " + year + "년은 평년입니다.");
+			}
+		//문제7 : 주차 사용요금 계산하기
+				  // [ 선언 변수 조건 ] 입차시간이 9시30분 입니다. 
+				  // - int 시 = 9;  int 분 = 30; 이와 같이 변수를 먼저 선언해주세요.
+				  // [ 출차시간 입력 조건 ] 출차시간의 시 와 분을 각 입력받아 각 변수에 저장하시오. 
+				   
+				  // [ 처리출력 조건 ] 1분당 1000원으로 계산하여 사용요금' 0000원' 을 출력하시오,
+				  // - 단 입차 시간 이전 으로 입력 할 경우에는 '출차시간 오류' 출력하시오
+				 int 시 = 9;
+			     int 분 = 30;
+				 System.out.print("출차 시간(시)을 입력하세요: ");
+				 int 출차시 = sc.nextInt();
+			     System.out.print("출차 시간(분)을 입력하세요: ");
+			     int 출차분 = sc.nextInt();
+			     int 입차분단위 = (시 * 60) + 분;
+			     int 출차분단위 = (출차시 * 60) + 출차분;
 
-		/*문제7 : 주차 사용요금 계산하기
-				   [ 선언 변수 조건 ] 입차시간이 9시30분 입니다. 
-				   - int 시 = 9;  int 분 = 30; 이와 같이 변수를 먼저 선언해주세요.
-				   [ 출차시간 입력 조건 ] 출차시간의 시 와 분을 각 입력받아 각 변수에 저장하시오. 
-				   [ 처리출력 조건 ] 1분당 1000원으로 계산하여 사용요금' 0000원' 을 출력하시오,
-				   - 단 입차 시간 이전 으로 입력 할 경우에는 '출차시간 오류' 출력하시오
+			     // 시간비교 요금 계산
+			     if (출차분단위 <= 입차분단위) {
+			    	 System.out.println("출차시간 오류");
+			       } else {
+			           int 주차시간 = 출차분단위 - 입차분단위;
+			           int 요금 = 주차시간 * 1000;
+			           System.out.println("사용요금: " + 요금 + "원");
+			       }
+			   
+			
+				 
 				
-				int 시 = 9;
-				int 분 = 30;
-				System.out.println("입차시간이"+시+"시"+분+"분"+"입니다");
-				int hour = sc.nextInt();  //출차 시간 입력
-				int min = sc.nextInt();    //출차 분 입력
-					if((String)hour/60*1000?) {     //
-						
-					}*/
-
+				
+			
 			
 		/*문제8 : 로그인 처리
 				   [입력 조건] 아이디[문자열] 와 비밀번호[문자열] 를 입력받기
@@ -138,17 +154,34 @@ public class Example5 {
    [ 선언 변수 조건 ] int 공1 = 14 ; int 공2 = 21 ; int 공3 = 9; 이와 같이 변수를 먼저 선언해주세요.
    [ 입력 조건 ] 세개의 정수를 입력받아 각 변수에 저장하시오.
    [ 출력 조건 ] 입력받은 세 정수 중에서 공1~공3 까지 동일한 번호 가 몇개 인지 출력하시오.*/
-	
-			int 공1 = 14 ; int 공2 = 21 ; int 공3 = 9;
-			int arg1 = sc.nextInt(); int arg2 =sc.nextInt(); int arg3 =sc.nextInt();
 			
-			if(arg1==공1&&arg2==공2&&공3==9) {
+			int 공1 = 14 ; int 공2 = 21 ; int 공3 = 9;
+			System.out.println("세개의 숫자를 입력하세요:");
+			int 입력1 = sc.nextInt();
+		    int 입력2 = sc.nextInt();
+		    int 입력3 = sc.nextInt();
+			
+		    int 당첨개수 = 0;
+		    
+		    if(입력1 == 공1 || 입력1 == 공2 || 입력1 == 공3) {
+		           당첨개수++;
+		       }
+		       
+		       if(입력2 == 공1 || 입력2 == 공2 || 입력2 == 공3) {
+		           당첨개수++;
+		       }
+		       
+		       if(입력3 == 공1 || 입력3 == 공2 || 입력3 == 공3) {
+		           당첨개수++;
+		       }
+
+		       System.out.println("당첨 번호 개수: " + 당첨개수);
+		   }
 		
-	
 				
 				
 
-		}
+
 	}// main end
 }//class end
 
