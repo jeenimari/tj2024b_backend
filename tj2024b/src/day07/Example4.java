@@ -28,7 +28,7 @@ public static void main(String[] args) {
 		sum += i;
 		System.out.println(sum);
 	}
-	
+//	임의의 점수 5개를 배열에 저장하고 총점과 평균을 구하는 코드 작성
 	double[] data = new double[5];
 	data[0] = 10.0;
 	data[1] = 20.0;
@@ -36,6 +36,15 @@ public static void main(String[] args) {
 	//4번째 5번째 인덱스는 대입하지않았지만 3과 5에는 기본값인 0.0이 들어감
 	for(int i = 0; i<data.length;i++) {
 		System.out.println(data[i]);
+	}
+	int[]data1 = new int[5];
+	data[0] = 10;
+	data[2] = 30;
+	data[4] = 60;
+	
+	int sum1 = 0;
+	for(int i = 0; i<data.length;i++) {
+		System.out.println(sum1);
 	}
 }//main end
 }//class end
