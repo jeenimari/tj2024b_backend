@@ -47,19 +47,20 @@ public void login(Scanner scan) {
          int choose = scan.nextInt();
          if(choose == 1) {
             System.out.println("=======내용을 입력하세요======");
-            String content= scan.next();
-            System.out.println("게시물 등록하시겠습니까?");
+            String content = scan.next();
+            
             if(content == null) {
                System.out.println("아무내용이 없습니다 내용을 입력해주세요");
                
             }else if(content !=null) {
             	System.out.println("게시물 등록완료.");
-            }else if(choose ==2) {System.out.println(content);}
+            }System.out.println("게시물을 출력합니다"+ content);
       
          }//if end
          
           
       }//for end
+   
    }//login end
 
 
