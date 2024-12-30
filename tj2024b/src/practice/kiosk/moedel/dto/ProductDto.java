@@ -1,4 +1,4 @@
-package practice.moedel.dto;
+package practice.kiosk.moedel.dto;
 
 public class ProductDto {
     // 필드

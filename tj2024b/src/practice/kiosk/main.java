@@ -1,5 +1,5 @@
 
-package practice;
+package practice.kiosk;
 
 import java.util.Scanner;
 
@@ -10,7 +10,7 @@ public class Main {
 
   
         Scanner scanner = new Scanner(System.in);
-        ProductView.pr
+        ProductView.
         
     // 상품 관리 메뉴
     

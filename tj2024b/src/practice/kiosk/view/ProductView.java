@@ -1,4 +1,4 @@
-package practice.view;
+package practice.kiosk.view;
 
 
 	// ProductView.java
@@ -6,7 +6,8 @@ package practice.view;
 	import java.util.Scanner;
 
 import practice.kiosk.controller.ProductController;
-import practice.moedel.dto.ProductDto;
+import practice.kiosk.moedel.dao.ProductDao;
+import practice.kiosk.moedel.dto.*;
 
 	public class ProductView {
 	    private static ProductView productView = new ProductView();
@@ -62,8 +63,8 @@ import practice.moedel.dto.ProductDto;
 	        System.out.print("가격 입력: ");
 	        int price = scanner.nextInt();
 	        
-	        ProductDto productDto = new ProductDto(name, price);
-	        boolean result = ProductController.getInstance.create(productDto);
+	        practice.kiosk.moedel.dto.ProductDto productDto = new practice.kiosk.moedel.dto.ProductDto(name, price);
+	        boolean result = ProductDao.getInstance().create(productDto);
 	        
 	        if(result) {
 	            System.out.println("상품이 등록되었습니다.");
@@ -75,7 +76,7 @@ import practice.moedel.dto.ProductDto;
 	    // 상품 목록 출력
 	    public void printAll() {
 	        System.out.println("\n[상품 목록]");
-	        ArrayList<ProductDto> products = ProductController.getInstance().printAll();
+	        ArrayList<practice.kiosk.moedel.dto.ProductDto> products = ProductDao.getInstance().printAll();
 	        
 	        if(products.isEmpty()) {
 	            System.out.println("등록된 상품이 없습니다.");
@@ -100,7 +101,7 @@ import practice.moedel.dto.ProductDto;
 	        System.out.print("새로운 가격 입력: ");
 	        int price = scanner.nextInt();
 	        
-	        ProductDto productDto = new ProductDto(name, price);
+	        practice.kiosk.moedel.dto.ProductDto productDto = new practice.kiosk.moedel.dto.ProductDto(name, price);
 	        boolean result = ProductController.getInstance().update(index, productDto);
 	        
 	        if(result) {
