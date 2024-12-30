@@ -19,13 +19,13 @@ import practice.moedel.dto.ProductDto;
 	  
 	    
 	    // 상품 목록 조회
-	    public ArrayList<ProductDto> getList() {
-	        return ProductDao.getInstance().printAll();
+	    public ArrayList<practice.kiosk.moedel.dto.ProductDto> getList() {
+	        return practice.kiosk.moedel.dao.ProductDao.getInstance().printAll();
 	    }
 	    
 	    // 특정 상품 조회
-	    public ProductDto getProduct(int index) {
-	        ArrayList<ProductDto> products = ProductDao.getInstance().printAll();
+	    public practice.kiosk.moedel.dto.ProductDto getProduct(int index) {
+	        ArrayList<practice.kiosk.moedel.dto.ProductDto> products = practice.kiosk.moedel.dao.ProductDao.getInstance().printAll();
 	        if(index >= 0 && index < products.size()) {
 	            return products.get(index);
 	        }
@@ -33,7 +33,7 @@ import practice.moedel.dto.ProductDto;
 	    }
 	    
 	    // 상품 수정
-	    public boolean update(int index, ProductDto newProduct) {
+	    public boolean update(int index, practice.kiosk.moedel.dto.ProductDto newProduct) {
 	        // 유효성 검사
 	        if(newProduct.getPName() == null || newProduct.getPName().trim().isEmpty()) {
 	            return false;
@@ -41,30 +41,30 @@ import practice.moedel.dto.ProductDto;
 	        if(newProduct.getPrice() <= 0) {
 	            return false;
 	        }
-	        if(index < 0 || index >= ProductDao.getInstance().printAll().size()) {
+	        if(index < 0 || index >= practice.kiosk.moedel.dao.ProductDao.getInstance().printAll().size()) {
 	            return false;
 	        }
 	        
-	        return ProductDao.getInstance().update(index, newProduct);
+	        return practice.kiosk.moedel.dao.ProductDao.getInstance().update(index, newProduct);
 	    }
 	    
 	    // 상품 삭제
 	    public boolean delete(int index) {
-	        if(index < 0 || index >= ProductDao.getInstance().printAll().size()) {
+	        if(index < 0 || index >= practice.kiosk.moedel.dao.ProductDao.getInstance().printAll().size()) {
 	            return false;
 	        }
-	        return ProductDao.getInstance().delete(index);
+	        return practice.kiosk.moedel.dao.ProductDao.getInstance().delete(index);
 	    }
 	    
 	    // 상품의 총 개수
 	    public int getCount() {
-	        return ProductDao.getInstance().printAll().size();
+	        return practice.kiosk.moedel.dao.ProductDao.getInstance().printAll().size();
 	    }
 	    
 	    // 상품명 중복 체크
 	    public boolean isProductNameDuplicate(String name) {
-	        ArrayList<ProductDto> products = ProductDao.getInstance().printAll();
-	        for(ProductDto product : products) {
+	        ArrayList<practice.kiosk.moedel.dto.ProductDto> products = practice.kiosk.moedel.dao.ProductDao.getInstance().printAll();
+	        for(practice.kiosk.moedel.dto.ProductDto product : products) {
 	            if(product.getPName().equalsIgnoreCase(name)) {
 	                return true;
 	            }
