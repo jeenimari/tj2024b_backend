@@ -12,3 +12,4 @@ public class SmartPhone extends Phone {
 	} 
 	
 }//클래스 끝
+ 
