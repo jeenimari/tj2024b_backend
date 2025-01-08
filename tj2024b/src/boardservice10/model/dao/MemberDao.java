@@ -131,6 +131,7 @@ public class MemberDao {
 			return memberDto; //조회된 회원정보반환
 		}
 	}catch(SQLException e){System.out.println(e);}
+		return null;
 	}
 	
 	
