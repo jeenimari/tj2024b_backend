@@ -86,7 +86,7 @@ public class MemberView {
 		//[1]입력
 		public void findPwd() {
 			System.out.println("아이디 : "); String mid = scan.next();
-			System.out.println("비밀번호 : "); String mphone = scan.next();
+			System.out.println("핸드폰번호 : "); String mphone = scan.next();
 			
 	
 		

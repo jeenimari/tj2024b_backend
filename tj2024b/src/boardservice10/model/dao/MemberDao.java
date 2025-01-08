@@ -1,6 +1,6 @@
 package boardservice10.model.dao;
 
-import java.lang.classfile.CodeBuilder.CatchBuilder;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -34,8 +34,8 @@ public class MemberDao {
 		try { 
 		
 		//[1]SQL 작성한다.
-		String sql = "insert into meber(mid , mpwd ,mname,mphone)"
-		+"values('"+memberDto.getMid()+"','"+memberDto.getMname()+"','"+memberDto.getMpwd()+"','"+memberDto.getMphone()+"')";
+		String sql = "insert into member(mid , mpwd ,mname,mphone)"
+		+"values('"+memberDto.getMid()+"','"+memberDto.getMpwd()+"','"+memberDto.getMname()+"','"+memberDto.getMphone()+"')";
 		
 		//[2]DB와 연동된 곳에 SQL 기재
 		PreparedStatement ps =conn.prepareStatement(sql);
@@ -76,7 +76,7 @@ public class MemberDao {
 	public String findId(MemberDto memberDto) {
 		try {
 		//[1]SQL    //mname = '유재석' ---> mname = ? : mname 어떤 값이 들어갈지 정해져 있지 않다 . 매개변수(파라미터)
-		String sql = "select mid from member where mname ='유재석' and mphone ='010-3333-3333'";
+		String sql = "select mid from member where mname =? and mphone =?";
 		//[2]DB와 연동된 곳에 SQL 기재
 		PreparedStatement ps =conn.prepareStatement(sql);
 			
