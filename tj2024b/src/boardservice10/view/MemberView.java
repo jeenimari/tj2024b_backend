@@ -13,8 +13,9 @@ public class MemberView {
 		private MemberView() {}
 		public static MemberView getInstance() { return instance;} 
 		
-	// 0.메인 메뉴
+	
 		private Scanner scan = new Scanner(System.in);
+		// 0.메인 메뉴
 		
 		public void run() {
 			while(true) {
@@ -48,6 +49,8 @@ public class MemberView {
 		boolean result = MemberController.getInstance().login(memberDto);
 		if(result) {
 			System.out.println("로그인성공");
+			//BoardView 메인메뉴 메소드 호출
+			BoardView.getInstance().index();
 		}else {
 			System.out.println("동일한 회원정보가 없습니다.");
 		}
@@ -102,7 +105,7 @@ public class MemberView {
 		}
 		
 		//[6]내 정보 보기 화면 메소드
-		public void myInfo() {
+		public int myInfo() {
 			//순서 : 1.입력-> 객체화 -> 컨트롤러에게 전달하고 응답결과 받기 -> 4.컨트롤러의 결과에따른 처리
 			//받는곳 =MemberController.getInstance().myInfo(주는곳);
 			MemberDto result = MemberController.getInstance().myInfo();
@@ -115,22 +118,42 @@ public class MemberView {
 			//서브메뉴
 			while(true) {
 			System.out.println("1.회원수정 2.회원탈퇴 3.뒤로가기 : ");
-			int choose2 = scan.nextInt();
-			if(choose2 == 1) {}
-			else if(choose2 == 2) {delete();}
-			else if(choose2 == 3) { break;} //메뉴에서 무한반복 탈출 // 뒤로가기랑 같은 의미임
+				int choose2 = scan.nextInt();
+				if(choose2 == 1) {update();}
+				else if(choose2 == 2) {
+					int state = delete();
+					if(state == 0){return 0;}
+				}else if(choose2 == 3) { break;} //메뉴에서 무한반복 탈출 // 뒤로가기랑 같은 의미임
 			}//while end
+			return 1;
 		}//f end
 		
 		//[7]회원탈퇴 화면 메소드
-		public void delete() {
+		public int delete() {
 			System.out.println("정말 회원탈퇴 하시겠습니까? 0:예  1:취소"); //버튼 클릭이 없으므로 키보드 입력으로 처리 해야함
 			int choose2 = scan.nextInt();
 			if(choose2 == 0) {
 				//- 탈퇴처리 컨트롤러 요청
 				MemberController.getInstance().delete();//
-				logout(); // 탈퇴처리시 로그아웃하기
- 			System.out.println("[회원탈퇴 성공]");
-			}
-		}
+				System.out.println("[회원탈퇴 성공]");
+				return 0; // 탈퇴 했다.
+			}	
+ 			return 1; //탈퇴 안했다.
+			}//f end
+			
+	//[8]회원수정 화면 메소드
+		public void update() {
+			System.out.print("새로운 비밀번호:");  String mpwd = scan.next();
+			System.out.print("새로운 이름 : "); 	String mname = scan.next();
+			System.out.print("새로운 전화번호 : "); String mPhone = scan.next();
+			MemberDto memberDto = new MemberDto();
+			memberDto.setMpwd(mpwd);
+			memberDto.setMname(mname);
+			memberDto.setMphone(mPhone);
+			boolean result = MemberController.getInstance().update(memberDto);
+			if(result ) {System.out.println("수정 완료");}
+			else {System.out.println("수정 실패");}
+		
+		}// f end
+		
 }//c end
