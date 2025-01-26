@@ -9,7 +9,7 @@ public class A {
 		//정적필드(java 17부터 허용)
 		static int field2 = 2;
 		
-		//생성자
+		//생성자ㅉ
 		B(){
 			System.out.println("B-생성자 실행");
 		}
